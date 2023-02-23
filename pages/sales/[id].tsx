@@ -2,22 +2,22 @@ import { useRouter } from "next/router";
 import { FC } from "react"
 
 import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { useCategories } from '../../hooks/useCategories';
+import { useSales } from '../../hooks/useSales';
 
 
 interface Props {
-    catid: string
+    saleid: string
 }
 
 const ProductoPage = () => {
     const router = useRouter();
-    const catid = router.query;
-    console.log(catid);
-    // renombrando la variable categories por category
-    const { categories:category, isLoading } = useCategories (`/categories/${catid.id}`);
+    const saleid = router.query;
+    console.log(saleid);
+    // renombrando la variable sales por category
+    const { sales:category, isLoading } = useSales (`/sales/${saleid.id}`);
   return (
     <PublicLayouts>
-        <h2>Detalle de la Categoria { catid.id}</h2>
+        <h2>Detalle de la Categoria { saleid.id}</h2>
     </PublicLayouts>
     
   )

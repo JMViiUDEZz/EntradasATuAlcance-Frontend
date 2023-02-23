@@ -15,7 +15,7 @@ const myLoader = ({src, width, quality}) =>{
   // return `https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/`
   return `${src}?s=${width}`
 }
-export const CategoryDetail:FC<Props> = ({list}) => {
+export const ListDetail:FC<Props> = ({list}) => {
     console.log(list);
     const [value, setValue] = React.useState('1');
 

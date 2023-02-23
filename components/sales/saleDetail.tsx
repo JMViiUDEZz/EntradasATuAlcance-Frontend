@@ -15,7 +15,7 @@ const myLoader = ({src, width, quality}) =>{
   // return `https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/`
   return `${src}?s=${width}`
 }
-export const CategoryDetail:FC<Props> = ({sale}) => {
+export const SaleDetail:FC<Props> = ({sale}) => {
     console.log(sale);
     const [value, setValue] = React.useState('1');
 
@@ -40,7 +40,7 @@ export const CategoryDetail:FC<Props> = ({sale}) => {
             > { sale.list}</Typography>
             <Box display='flex' flexDirection='row' >
               <Typography sx={{width: '40%'}}  variant='subtitle1' > ISBN </Typography>
-              <Typography sx={{width: '60%'}}> {sale.catid} </Typography>
+              <Typography sx={{width: '60%'}}> {sale.saleid} </Typography>
             </Box>
             <Box display='flex' flexDirection='row'>
               <Typography sx={{width: '40%'}}  variant='subtitle1' > Paginas </Typography>

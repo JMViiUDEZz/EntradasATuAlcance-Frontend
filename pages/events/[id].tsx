@@ -2,22 +2,22 @@ import { useRouter } from "next/router";
 import { FC } from "react"
 
 import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { useCategories } from '../../hooks/useCategories';
+import { useEvents } from '../../hooks/useEvents';
 
 
 interface Props {
-    catid: string
+    eventid: string
 }
 
 const ProductoPage = () => {
     const router = useRouter();
-    const catid = router.query;
-    console.log(catid);
-    // renombrando la variable categories por category
-    const { categories:category, isLoading } = useCategories (`/categories/${catid.id}`);
+    const eventid = router.query;
+    console.log(eventid);
+    // renombrando la variable events por category
+    const { events:category, isLoading } = useEvents (`/events/${eventid.id}`);
   return (
     <PublicLayouts>
-        <h2>Detalle de la Categoria { catid.id}</h2>
+        <h2>Detalle de la Categoria { eventid.id}</h2>
     </PublicLayouts>
     
   )
