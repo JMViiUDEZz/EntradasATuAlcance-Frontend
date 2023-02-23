@@ -7,7 +7,6 @@ interface Props {
     categories: ICategory[]
 }
 
-
 export const CategoryCardList:FC<Props> = ({ categories }) => {
   return (
     <Grid container spacing={4}>

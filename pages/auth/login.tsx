@@ -1,8 +1,10 @@
 import { Box, Grid, Typography, TextField, Button, Link } from '@mui/material';
 import NextLink from 'next/link';
+import { useForm } from 'react-hook-form';
 import { AuthLayout } from '../../layouts/AuthLayouts';
 
 const LoginPage = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
   return (
     <AuthLayout title={'Ingresar'}>
         <Box sx={{ width: 350, padding: '10px 20px'}}>

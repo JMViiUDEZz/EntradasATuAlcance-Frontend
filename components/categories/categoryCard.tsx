@@ -10,7 +10,7 @@ export const CategoryCard:FC<Props> = ({ category }) => {
   return (
     <Grid item xs= {6} sm={3}>
         <Card sx={{ width: '90%' }}>
-          <Link href={`/libros/${category.catid}`}  passHref component={NextLink} prefetch={false}>
+          <Link href={`/categories/${category.catid}`}  passHref component={NextLink} prefetch={false}>
             <CardActionArea>
                 <Box display='flex' alignItems='flex-start' flexDirection='row'>
                     <CardMedia
