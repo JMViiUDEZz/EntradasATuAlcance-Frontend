@@ -8,7 +8,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 interface Props {
     categories: ICategory[]
 }
-export const LibrosList:FC<Props> = ({categories}) => {
+export const CategoryList:FC<Props> = ({categories}) => {
   
   const colums: GridColDef[] = [
         { field: 'isbn', headerName: 'ISBN', width: 130},

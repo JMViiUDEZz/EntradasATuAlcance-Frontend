@@ -6,7 +6,7 @@ import NextLink  from 'next/link';
 interface Props {
     sale: ISale;
 }
-export const CategoryCard:FC<Props> = ({ sale }) => {
+export const SaleCard:FC<Props> = ({ sale }) => {
   return (
     <Grid item xs= {6} sm={3}>
         <Card sx={{ width: '90%' }}>

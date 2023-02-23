@@ -1,15 +1,15 @@
 import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { CategoryCardList } from '../../components/categories/categoryCardList';
-import { useCategories } from '../../hooks/useCategories';
+import { DateCardList } from '../../components/dates/dateCardList';
+import { useDates } from '../../hooks/useDates';
 
 const IndexCategoriesPage = () => {
-  const { categories, isLoading } = useCategories('/categories');
-  console.log("l=", isLoading, "c=", categories);
+  const { dates, isLoading } = useDates('/dates');
+  console.log("l=", isLoading, "c=", dates);
 
   return (
     <PublicLayouts>
       <h2>Sección de Categorias</h2>
-      <CategoryCardList categories = {categories} />
+      <DateCardList dates = {dates} />
     </PublicLayouts>
   )
 }

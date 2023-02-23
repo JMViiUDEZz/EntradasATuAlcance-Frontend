@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/events/eventList copy.tsx", "components/venues/venueList copy.tsx"],
   "exclude": ["node_modules"]
 }

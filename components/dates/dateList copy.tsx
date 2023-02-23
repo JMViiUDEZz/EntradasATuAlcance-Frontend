@@ -6,7 +6,7 @@ import { IDate } from '../../interfaces/dates/IDate';
 interface Props {
     dates: IDate[]
 }
-export const CategoryList:FC<Props> = ({ dates }) => {
+export const DateList:FC<Props> = ({ dates }) => {
   return (
     <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -22,15 +22,15 @@ export const CategoryList:FC<Props> = ({ dates }) => {
         <TableBody>
                 { 
                     dates.map((date: IDate) => (
-                        <TableRow key= { date.catid } 
+                        <TableRow key= { date.dateid } 
                                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                { date.catid }
+                                { date.dateid }
                             </TableCell>
-                            <TableCell align="right">{date.catgroup}</TableCell>
-                            <TableCell align="right">{date.catname}</TableCell>
-                            <TableCell align="right">{date.catdesc}</TableCell>
+                            <TableCell align="right">{date.month}</TableCell>
+                            <TableCell align="right">{date.day}</TableCell>
+                            <TableCell align="right">{date.year}</TableCell>
                         </TableRow>
                     )
                 )}

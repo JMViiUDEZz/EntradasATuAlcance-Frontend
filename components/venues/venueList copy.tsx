@@ -6,7 +6,7 @@ import { IVenue } from '../../interfaces/venues/IVenue';
 interface Props {
     venues: IVenue[]
 }
-export const CategoryList:FC<Props> = ({ venues }) => {
+export const VenueList:FC<Props> = ({ venues }) => {
   return (
     <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -22,15 +22,15 @@ export const CategoryList:FC<Props> = ({ venues }) => {
         <TableBody>
                 { 
                     venues.map((venue: IVenue) => (
-                        <TableRow key= { venue.catid } 
+                        <TableRow key= { venue.venueid } 
                                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                { venue.catid }
+                                { venue.venueid }
                             </TableCell>
-                            <TableCell align="right">{venue.catgroup}</TableCell>
-                            <TableCell align="right">{venue.catname}</TableCell>
-                            <TableCell align="right">{venue.catdesc}</TableCell>
+                            <TableCell align="right">{venue.venuename}</TableCell>
+                            <TableCell align="right">{venue.venueseats}</TableCell>
+                            <TableCell align="right">{venue.venuecity}</TableCell>
                         </TableRow>
                     )
                 )}

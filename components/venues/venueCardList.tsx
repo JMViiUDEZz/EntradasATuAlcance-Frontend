@@ -7,7 +7,7 @@ interface Props {
     venues: IVenue[]
 }
 
-export const CategoryCardList:FC<Props> = ({ venues }) => {
+export const VenueCardList:FC<Props> = ({ venues }) => {
   return (
     <Grid container spacing={4}>
       {

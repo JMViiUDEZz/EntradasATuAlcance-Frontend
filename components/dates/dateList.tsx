@@ -8,7 +8,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 interface Props {
     dates: IDate[]
 }
-export const LibrosList:FC<Props> = ({dates}) => {
+export const DateList:FC<Props> = ({dates}) => {
   
   const colums: GridColDef[] = [
         { field: 'isbn', headerName: 'ISBN', width: 130},

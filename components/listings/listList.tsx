@@ -6,9 +6,9 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 interface Props {
-    lists: IList[]
+    listings: IList[]
 }
-export const LibrosList:FC<Props> = ({lists}) => {
+export const ListList:FC<Props> = ({listings}) => {
   
   const colums: GridColDef[] = [
         { field: 'isbn', headerName: 'ISBN', width: 130},
@@ -28,7 +28,7 @@ export const LibrosList:FC<Props> = ({lists}) => {
             ) 
         }
   ];
-  const rows = lists;
+  const rows = listings;
   return (
             <Grid container sx={{ width: '70%', display: 'flex',justifyContent: 'flex-end'}}>
               <Box >

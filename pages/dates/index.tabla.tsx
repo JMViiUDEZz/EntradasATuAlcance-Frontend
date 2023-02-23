@@ -2,21 +2,21 @@ import React from 'react'
 import { Button } from "@mui/material";
 import { NextPage } from "next"
 import { MainLayouts } from "../../layouts";
-import { useCategories } from '../../hooks/useCategories';
-import { CategoryList } from '../../components/categories/categoryList';
+import { useDates } from '../../hooks/useDates';
+import { DateList } from '../../components/dates/dateList';
 import { Mundo } from '../../components/Mundo';
 
 const CategoriaIndex = () => {
   // const indexPage: NextPage = () => {
-    const { categories, isLoading } = useCategories ('/categories');
+    const { dates, isLoading } = useDates ('/dates');
     // const respuesta = useAuth ('/auth');
   //  console.log(respuesta);
-    console.log(isLoading, "c=", categories);
+    console.log(isLoading, "c=", dates);
     return (
       <MainLayouts>
         {
           (isLoading )
-            ? <CategoryList categories={ categories }  /> 
+            ? <DateList dates={ dates }  /> 
             : <Mundo />
   
         }

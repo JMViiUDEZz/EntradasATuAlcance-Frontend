@@ -7,7 +7,7 @@ interface Props {
     events: IEvent[]
 }
 
-export const CategoryCardList:FC<Props> = ({ events }) => {
+export const EventCardList:FC<Props> = ({ events }) => {
   return (
     <Grid container spacing={4}>
       {

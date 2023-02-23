@@ -1,18 +1,18 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
-import { CategoryCard } from "../sales/saleCard";
+import { SaleCard } from "../sales/saleCard";
 import { ISale } from '../../interfaces/sales/ISale';
 
 interface Props {
     sales: ISale[]
 }
 
-export const CategoryCardList:FC<Props> = ({ sales }) => {
+export const SaleCardList:FC<Props> = ({ sales }) => {
   return (
     <Grid container spacing={4}>
       {
         sales.map( (sale ) => (
-          <CategoryCard 
+          <SaleCard 
             sale = { sale }
             key = { sale.saleid }
           />

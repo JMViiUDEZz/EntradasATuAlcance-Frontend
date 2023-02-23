@@ -7,7 +7,7 @@ interface Props {
     dates: IDate[]
 }
 
-export const CategoryCardList:FC<Props> = ({ dates }) => {
+export const DateCardList:FC<Props> = ({ dates }) => {
   return (
     <Grid container spacing={4}>
       {

@@ -6,7 +6,7 @@ import { ISale } from '../../interfaces/sales/ISale';
 interface Props {
     sales: ISale[]
 }
-export const CategoryList:FC<Props> = ({ sales }) => {
+export const SaleList:FC<Props> = ({ sales }) => {
   return (
     <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -22,15 +22,15 @@ export const CategoryList:FC<Props> = ({ sales }) => {
         <TableBody>
                 { 
                     sales.map((sale: ISale) => (
-                        <TableRow key= { sale.catid } 
+                        <TableRow key= { sale.saleid } 
                                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                { sale.catid }
+                                { sale.saleid }
                             </TableCell>
-                            <TableCell align="right">{sale.catgroup}</TableCell>
-                            <TableCell align="right">{sale.catname}</TableCell>
-                            <TableCell align="right">{sale.catdesc}</TableCell>
+                            <TableCell align="right">{sale.pricepaid}</TableCell>
+                            <TableCell align="right">{sale.commission}</TableCell>
+                            <TableCell align="right">{sale.saletime}</TableCell>
                         </TableRow>
                     )
                 )}

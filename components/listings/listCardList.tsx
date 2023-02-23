@@ -7,7 +7,7 @@ interface Props {
     lists: IList[]
 }
 
-export const CategoryCardList:FC<Props> = ({ lists }) => {
+export const ListCardList:FC<Props> = ({ lists }) => {
   return (
     <Grid container spacing={4}>
       {

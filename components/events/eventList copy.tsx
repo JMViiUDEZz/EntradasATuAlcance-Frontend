@@ -6,7 +6,7 @@ import { IEvent } from '../../interfaces/events/IEvent';
 interface Props {
     events: IEvent[]
 }
-export const CategoryList:FC<Props> = ({ events }) => {
+export const EventList:FC<Props> = ({ events }) => {
   return (
     <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -22,15 +22,15 @@ export const CategoryList:FC<Props> = ({ events }) => {
         <TableBody>
                 { 
                     events.map((event: IEvent) => (
-                        <TableRow key= { event.catid } 
+                        <TableRow key= { event.eventid } 
                                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                { event.catid }
+                                { event.eventid }
                             </TableCell>
-                            <TableCell align="right">{event.catgroup}</TableCell>
-                            <TableCell align="right">{event.catname}</TableCell>
-                            <TableCell align="right">{event.catdesc}</TableCell>
+                            <TableCell align="right">{event.eventname}</TableCell>
+                            <TableCell align="right">{event.starttime}</TableCell>
+                            <TableCell align="right">{event.date}</TableCell>
                         </TableRow>
                     )
                 )}
