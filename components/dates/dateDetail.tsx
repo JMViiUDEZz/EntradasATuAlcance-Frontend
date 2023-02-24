@@ -8,7 +8,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 interface Props {
-    dates: IDate
+    date: IDate
 }
 
 const myLoader = ({src, width, quality}) =>{
@@ -29,30 +29,30 @@ export const DateDetail:FC<Props> = ({date}) => {
         <Box display='flex' flexDirection='row'  >
           <Image
             loader={myLoader}
-            src= {date.catname}
-            alt={date.catdesc}
+            src= {date.dateid}
+            alt={date.day}
             width={300}
             height={300}
           />
           <Box display='flex' flexDirection='column' sx={{  width: '40%', p:3}} >
             <Typography variant='h5' component='h5'
                         sx={{ fontSize: '20px', textAlign: 'center', mb: '10px'}}
-            > { date.catgroup}</Typography>
+            > { date.year}</Typography>
             <Box display='flex' flexDirection='row' >
               <Typography sx={{width: '40%'}}  variant='subtitle1' > ISBN </Typography>
-              <Typography sx={{width: '60%'}}> {date.catid} </Typography>
+              <Typography sx={{width: '60%'}}> {date.month} </Typography>
             </Box>
             <Box display='flex' flexDirection='row'>
               <Typography sx={{width: '40%'}}  variant='subtitle1' > Paginas </Typography>
-              <Typography sx={{width: '60%'}}> {date.catdesc} </Typography>
+              <Typography sx={{width: '60%'}}> {date.week} </Typography>
             </Box>
             <Box display='flex' flexDirection='row'>
               <Typography sx={{width: '40%'}}  variant='subtitle1' > Publicación </Typography>
-              <Typography sx={{width: '60%'}}> {date.catgroup} </Typography>
+              <Typography sx={{width: '60%'}}> {date.month} </Typography>
             </Box>
           </Box>
           <Box  sx={{ display:'flex', flexDirection:'column', justifyContent:'space-around', alignItems:'center'}}>
-            <Typography variant='h4' component='h4'> { date.catname } </Typography>
+            <Typography variant='h4' component='h4'> { date.holiday } </Typography>
             <Button variant="contained" endIcon={<ShoppingCartIcon />}>
               Añadir a la cesta
             </Button>

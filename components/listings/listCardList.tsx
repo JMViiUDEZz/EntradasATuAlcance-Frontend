@@ -4,14 +4,14 @@ import { CategoryCard } from "../listings/listCard";
 import { IList } from '../../interfaces/listings/IList';
 
 interface Props {
-    lists: IList[]
+    listings: IList[]
 }
 
-export const ListCardList:FC<Props> = ({ lists }) => {
+export const ListCardList:FC<Props> = ({ listings }) => {
   return (
     <Grid container spacing={4}>
       {
-        lists.map( (list ) => (
+        listings.map( (list ) => (
           <CategoryCard 
             list = { list }
             key = { list.listid }
