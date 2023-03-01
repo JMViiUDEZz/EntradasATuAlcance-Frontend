@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
-import Image from 'next/image';
+import Image, { ImageLoader } from 'next/image';
 import React, { FC } from 'react'
 import { IVenue } from '../../interfaces/venues/IVenue';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -11,7 +11,7 @@ interface Props {
     venue: IVenue
 }
 
-const myLoader = ({src, width, quality}) =>{
+const myLoader:ImageLoader = ({src, width, quality}) =>{
   // return `https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/`
   return `${src}?s=${width}`
 }

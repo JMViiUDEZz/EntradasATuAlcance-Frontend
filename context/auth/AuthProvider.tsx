@@ -13,8 +13,11 @@ const AUTH_INITIAL_STATE: AuthState = {
     isLoggedIn: false,
     user: undefined
 }
+interface Props{
+    children: any
+}
 
-export const AuthProvider:FC = ({ children }) => {
+export const AuthProvider:FC<({ children: any })> = ({ children }) => {
     const [ state, dispatch ] = useReducer( authReducer, AUTH_INITIAL_STATE );
     const loginUser = async (email: string, password: string):Promise<boolean> => {
         try {
