@@ -70,9 +70,9 @@ export const DateDetail:FC<Props> = ({date}) => {
                 <Tab label="Estado" value="3" />
               </TabList>
             </Box>
-            <TabPanel value="1">{date.catdesc}</TabPanel>
-            <TabPanel value="2">{date.catgroup}</TabPanel>
-            <TabPanel value="3">{date.catname}</TabPanel>
+            <TabPanel value="1">{date.day}</TabPanel>
+            <TabPanel value="2">{date.month}</TabPanel>
+            <TabPanel value="3">{date.qtr}</TabPanel>
           </TabContext>
         </Box>
         {/* <Box sx={{ width: '100%' }}>
