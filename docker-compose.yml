@@ -1,10 +1,12 @@
-version: "3"
+version: '3'
+
 services:
-  nginx-node-jenkins:
-    container_name: Nginx-node-jenkins
-    image: nginx-node-jenkins
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+  app:
+    build: .
     ports:
-      - 80:80
+      - "3000:80"
+    volumes:
+      - ./pages:/app/pages
+      - ./public:/app/public
+    environment:
+      - NODE_ENV=production

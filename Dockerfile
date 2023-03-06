@@ -1,33 +1,29 @@
-FROM node:16 AS install
-LABEL stage=install
+# Selecciona una imagen base de Node.js
+FROM node:14.15.0-alpine3.12 AS builder
 
-COPY ./package.json .
-COPY ./package-lock.json .
-COPY ./yarn.lock .
+# Configurar el directorio de trabajo de la aplicación
+WORKDIR /app
 
-RUN yarn config set network-timeout 60000
-RUN npm install && mkdir /nextjs-ui && mv ./node_modules ./nextjs-ui
+# Copiar el archivo package.json y package-lock.json a la imagen
+COPY package*.json ./
 
-FROM node:16 AS compile
-LABEL stage=compile
+# Instalar las dependencias de la aplicación
+RUN npm install
 
-WORKDIR /nextjs-ui
-COPY --from=install /nextjs-ui .
+# Copiar el resto de la aplicación a la imagen
 COPY . .
 
+# Compilar la aplicación con Next.js
 RUN npm run build
-RUN yarn config set network-timeout 60000
-RUN yarn install --production=true
-RUN yarn start
 
-FROM nginx:1.19.0-alpine AS deploy
+# Configurar la imagen base de NGINX
+FROM nginx:1.19.6-alpine
 
-RUN rm /etc/nginx/conf.d/*
-COPY ./public/favicon.ico /usr/share/nginx/html/favicon.ico
-COPY ./entradasatualcance.com /etc/nginx/sites-available/entradasatualcance.com
-RUN mkdir /etc/nginx/sites-enabled
-RUN ln -s /etc/nginx/sites-available/entradasatualcance.com /etc/nginx/sites-enabled/
+# Copiar la configuración de NGINX
+COPY nginx.conf /etc/nginx/nginx.conf
 
+# Copiar la aplicación compilada de Next.js
+COPY --from=builder /app/out /usr/share/nginx/html
+
+# Exponer el puerto 80 para NGINX
 EXPOSE 80
-
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
