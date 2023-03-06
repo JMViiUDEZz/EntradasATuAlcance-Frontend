@@ -1,10 +1,13 @@
 server {
-    listen 80;
-    server_name entradasatualcance.com www.entradasatualcance.com;
+        listen 80;
+        listen [::]:80;
 
-    location / {
         root /var/www/entradasatualcance;
-        index index.html;
-        try_files $uri $uri/ /index.html;
-    }
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name entradasatualcance.com www.entradasatualcance.com;
+
+        location / {
+                try_files $uri $uri/ =404;
+		}
 }
