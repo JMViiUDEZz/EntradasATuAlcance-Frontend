@@ -21,10 +21,9 @@ RUN yarn install --production=true
 
 FROM nginx:1.19.0-alpine AS deploy
 
-COPY ./entradasatualcance.conf /etc/nginx/sites-available/entradasatualcance.conf
+COPY ./entradasatualcance.com /etc/nginx/sites-available/entradasatualcance.com
 RUN mkdir /etc/nginx/sites-enabled
-RUN ln -s /etc/nginx/sites-available/entradasatualcance.conf /etc/nginx/sites-enabled/
-RUN nginx -t
+RUN ln -s /etc/nginx/sites-available/entradasatualcance.com /etc/nginx/sites-enabled/
 
 EXPOSE 80
 
