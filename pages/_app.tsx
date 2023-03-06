@@ -4,7 +4,6 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { lightTheme, nightTheme } from '../themes';
 import { SWRConfig } from 'swr';
 import { AuthProvider } from '../context';
-import Head from "next/head";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,9 +14,6 @@ export default function App({ Component, pageProps }: AppProps) {
         fetcher: (resource, init ) => fetch(resource, init ).then( res => res.json ())
       }}
     >
-      <Head>
-        <link rel="shortcut icon" href="/favicon.ico" />
-      </Head>
       <AuthProvider>
           <ThemeProvider theme={ lightTheme } >
           <CssBaseline />

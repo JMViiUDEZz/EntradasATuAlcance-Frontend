@@ -14,6 +14,7 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
+        <link rel="icon" href="/public/favicon.ico" />
       </Head>
       <body>
         <Main />
