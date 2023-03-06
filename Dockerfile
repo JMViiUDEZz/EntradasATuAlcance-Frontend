@@ -21,11 +21,9 @@ RUN yarn install --production=true
 
 FROM nginx:1.19.0-alpine AS deploy
 
-COPY ./EntradasATuAlcance.conf /etc/nginx/sites-available/EntradasATuAlcance.conf
-COPY --from=compile .next/server/pages/index.html /var/www/EntradasATuAlcance/index.html
-
+COPY ./entradasatualcance.conf /etc/nginx/sites-available/entradasatualcance.conf
 RUN mkdir /etc/nginx/sites-enabled
-RUN ln -s /etc/nginx/sites-available/EntradasATuAlcance.conf /etc/nginx/sites-enabled/
+RUN ln -s /etc/nginx/sites-available/entradasatualcance.conf /etc/nginx/sites-enabled/
 
 EXPOSE 80
 
