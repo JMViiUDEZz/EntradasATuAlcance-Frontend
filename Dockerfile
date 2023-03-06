@@ -20,7 +20,7 @@ RUN yarn config set network-timeout 60000
 RUN yarn install --production=true
 RUN yarn start
 
-FROM nginx:1.19.0-alpine AS deploy
+FROM nginx:latest-alpine AS deploy
 
 COPY ./public/favicon.ico /usr/share/nginx/html/favicon.ico
 COPY ./entradasatualcance.com /etc/nginx/sites-available/entradasatualcance.com
