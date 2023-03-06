@@ -16,4 +16,10 @@ server {
 			proxy_set_header Host $host;
 			proxy_cache_bypass $http_upgrade;
 		}
+		
+		location = /favicon.ico {
+			return 204;
+			access_log     off;
+			log_not_found  off;
+		}
 }
