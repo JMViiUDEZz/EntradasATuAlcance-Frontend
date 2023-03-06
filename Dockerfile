@@ -27,3 +27,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 # Exponer el puerto 80 para NGINX
 EXPOSE 80
+
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
