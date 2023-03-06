@@ -23,7 +23,6 @@ FROM nginx:1.19.0-alpine AS deploy
 
 COPY ./entradasatualcance.com /etc/nginx/sites-available/entradasatualcance.com
 RUN mkdir /etc/nginx/sites-enabled
-RUN rm /etc/nginx/sites-enabled/*.save
 RUN ln -s /etc/nginx/sites-available/entradasatualcance.com /etc/nginx/sites-enabled/
 
 EXPOSE 80
