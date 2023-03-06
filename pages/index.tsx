@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { NextPage } from "next"
 import { MainLayouts } from "../layouts";
-import { UseCategories } from '../hooks/useCategories';
+// import { UseCategories } from '../hooks/useCategories';
 import { CategoryList } from '../components/categories/categoryList';
 import { Mundo } from '../components/Mundo';
  
