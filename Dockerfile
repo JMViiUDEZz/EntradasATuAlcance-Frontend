@@ -21,8 +21,9 @@ RUN yarn install --production=true
 
 FROM nginx:1.19.0-alpine AS deploy
 
-COPY --from=compile /src/build/dist/main.js /usr/share/nginx/html/index.js
-COPY --from=compile /src/build/node_modules /usr/share/nginx/html/node_modules
+COPY ./EntradasATuAlcance.conf /etc/nginx/sites-available/EntradasATuAlcance.conf
+RUN ln -s /etc/nginx/sites-available/EntradasATuAlcance.conf /etc/nginx/sites-enabled/
+RUN systemctl restart nginx
 
 EXPOSE 80
 
