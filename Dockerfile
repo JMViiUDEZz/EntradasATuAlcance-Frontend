@@ -24,7 +24,6 @@ FROM nginx:1.19.0-alpine AS deploy
 COPY ./EntradasATuAlcance.conf /etc/nginx/sites-available/EntradasATuAlcance.conf
 RUN mkdir /etc/nginx/sites-enabled
 RUN ln -s /etc/nginx/sites-available/EntradasATuAlcance.conf /etc/nginx/sites-enabled/
-RUN systemctl restart nginx
 
 EXPOSE 80
 
