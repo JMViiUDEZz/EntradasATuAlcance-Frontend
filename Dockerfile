@@ -18,6 +18,7 @@ COPY . .
 RUN yarn build
 RUN yarn config set network-timeout 60000
 RUN yarn install --production=true
+RUN yarn start
 
 FROM nginx:1.19.0-alpine AS deploy
 
