@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Compilar la aplicación con Next.js
-RUN npm run build
+RUN npm run dev
 
 # Configurar la imagen base de NGINX
 FROM nginx:1.19.6-alpine
@@ -23,7 +23,7 @@ FROM nginx:1.19.6-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copiar la aplicación compilada de Next.js
-COPY --from=builder /app/out /usr/share/nginx/html
+# COPY --from=builder /app/out /usr/share/nginx/html
 
 # Exponer el puerto 80 para NGINX
 EXPOSE 80
