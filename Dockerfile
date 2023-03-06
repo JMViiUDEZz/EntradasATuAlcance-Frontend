@@ -24,6 +24,7 @@ FROM nginx:1.19.0-alpine AS deploy
 COPY ./entradasatualcance.conf /etc/nginx/sites-available/entradasatualcance.conf
 RUN mkdir /etc/nginx/sites-enabled
 RUN ln -s /etc/nginx/sites-available/entradasatualcance.conf /etc/nginx/sites-enabled/
+RUN nginx -t
 
 EXPOSE 80
 
