@@ -7,6 +7,12 @@ server {
 
         server_name entradasatualcance.com www.entradasatualcance.com;
 
+		location /favicon.ico {
+			return 204;
+			access_log     off;
+			log_not_found  off;
+		}
+		
         location / {
 			try_files $uri $uri/ =404;
 			proxy_pass	http://localhost:3000;
@@ -15,11 +21,5 @@ server {
 			proxy_set_header Connection 'upgrade';
 			proxy_set_header Host $host;
 			proxy_cache_bypass $http_upgrade;
-		}
-		
-		location = /favicon.ico {
-			return 204;
-			access_log     off;
-			log_not_found  off;
 		}
 }
