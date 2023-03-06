@@ -1,0 +1,19 @@
+version: "3"
+services:
+  node-nginx:
+    container_name: Node-nginx-jenkins
+    image: ub-node-nginx-jenkins
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:3000
+    networks:
+      net_node-nginx:
+          ipv4_address: 172.50.0.7
+networks:
+  net_node-nginx-jenkins:
+      ipam:
+          driver: default
+          config:
+              - subnet: 172.50.0.0/16
