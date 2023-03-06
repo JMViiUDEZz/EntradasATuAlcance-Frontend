@@ -1,8 +1,8 @@
 version: "3"
 services:
-  node-nginx-jenkins:
-    container_name: Node-nginx-jenkins
-    image: node-nginx-jenkins
+  node-nginx:
+    container_name: Node-nginx
+    image: node-nginx
     build:
       context: .
       dockerfile: ./Dockerfile
