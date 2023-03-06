@@ -27,4 +27,4 @@ RUN ln -s /etc/nginx/sites-available/entradasatualcance.com /etc/nginx/sites-ena
 
 EXPOSE 80
 
-ENTRYPOINT [ "nginx", "-g", "daemon off" ]
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
