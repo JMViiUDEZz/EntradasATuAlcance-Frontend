@@ -23,7 +23,6 @@ RUN yarn start
 FROM nginx:1.19.0-alpine AS deploy
 
 RUN rm /etc/nginx/conf.d/*
-COPY ./default.conf /etc/nginx/conf.d/
 COPY ./public/favicon.ico /usr/share/nginx/html/favicon.ico
 COPY ./entradasatualcance.com /etc/nginx/sites-available/entradasatualcance.com
 RUN mkdir /etc/nginx/sites-enabled
