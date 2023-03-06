@@ -21,6 +21,11 @@ FROM nginx:1.19.6-alpine
 
 # Copiar la configuración de NGINX
 COPY nginx.conf /etc/nginx/nginx.conf
+RUN rm /etc/nginx/conf.d/*
+COPY ./public/favicon.ico /usr/share/nginx/html/favicon.ico
+COPY ./entradasatualcance.com /etc/nginx/sites-available/entradasatualcance.com
+RUN mkdir /etc/nginx/sites-enabled
+RUN ln -s /etc/nginx/sites-available/entradasatualcance.com /etc/nginx/sites-enabled/
 
 # Copiar la aplicación compilada de Next.js
 # COPY --from=builder /app/out /usr/share/nginx/html
