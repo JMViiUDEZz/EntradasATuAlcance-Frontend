@@ -1,26 +1,26 @@
 
 
 export interface IUser {
-    userid: string;
-    username: string;
-    firstname: string; 
-    lastname: string;
+    userid?: string;
+    username?: string;
+    firstname?: string; 
+    lastname?: string;
     fullname: string;
-    city: string;
-    state: string;
+    city?: string;
+    state?: string;
     email: string;
     password: string;    
-    phone: string;
-    likesports: boolean;
-    liketheatre: boolean;
-    likeconcerts: boolean;
-    likejazz: boolean;
-    likeclassical: boolean;
-    likeopera: boolean;
-    likerock: boolean;
-    likevegas: boolean;
-    likebroadway: boolean;
-    likemusicals: boolean;
+    phone?: string;
+    likesports?: boolean;
+    liketheatre?: boolean;
+    likeconcerts?: boolean;
+    likejazz?: boolean;
+    likeclassical?: boolean;
+    likeopera?: boolean;
+    likerock?: boolean;
+    likevegas?: boolean;
+    likebroadway?: boolean;
+    likemusicals?: boolean;
 
     // id?: number;
     // fullName: string;
