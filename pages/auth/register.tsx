@@ -38,6 +38,8 @@ const RegisterPage = () => {
     setShowError(false);
     const { email, password, fullname } = InputData;
     const {hasError, message } = await registerUser(email, password, fullname)
+    console.log(hasError, message )
+
     if (hasError){
         setShowError(true);
         setErrorMessage(message || '');

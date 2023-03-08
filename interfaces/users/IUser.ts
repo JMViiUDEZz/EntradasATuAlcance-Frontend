@@ -21,12 +21,11 @@ export interface IUser {
     likevegas?: boolean;
     likebroadway?: boolean;
     likemusicals?: boolean;
-
     // id?: number;
     // fullName: string;
     // email: string;
     // password: string;
     isActive?: boolean;
     token?: string;
-    roles?: string[]
+    roles?: string[];
 }
