@@ -1,10 +1,10 @@
-import { FC, useReducer } from 'react';
+import { FC, useReducer, useEffect } from 'react';
 import { AuthContext, authReducer  } from './';
 import { IUser } from '../../interfaces/users/IUser';
 import entradasATuAlcanceApi from '../../api/EntradasATuAlcanceApi';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { IRespuestaApiAuth } from './interfaces/IRespuestaAuthApi';
+import { IRespuestaApiAuth, IRespuestaLogin } from './interfaces/IRespuestaAuthApi';
 export interface AuthState{
     isLoggedIn: boolean;
     user?: IUser;
@@ -19,6 +19,18 @@ interface Props{
 
 export const AuthProvider:FC<({ children: any })> = ({ children }) => {
     const [ state, dispatch ] = useReducer( authReducer, AUTH_INITIAL_STATE );
+
+    useEffect( ()=>{
+        checkToken()
+    }, []);
+    const checkToken = async() => {
+        //llamar al endpoint
+        //Revalidar el token y guardar en cockies
+        //dispatch login
+
+        //Mal --> borrar token de las cockies
+    }
+
     const loginUser = async (email: string, password: string):Promise<boolean> => {
         try {
             const { data } = await entradasATuAlcanceApi.post('/auth/login', { email, password });
@@ -26,18 +38,20 @@ export const AuthProvider:FC<({ children: any })> = ({ children }) => {
             const { token, user } = data;
             console.log(user);
             Cookies.set('token', token);
+            Cookies.set('FullName', user.fullname); 
             dispatch({ type: '[Auth] - Login', payload: user });
             return true;
         } catch (error) { //credenciales falsas
             return false;
         }
     } 
-
-    const registerUser = async (email: string, password: string, fullName: string ):Promise<IRespuestaApiAuth>=> {
+                         //   {...user}
+    const registerUser = async (email: string, password: string, fullname: string ):Promise<IRespuestaApiAuth>=> {
         try {
-            const { data } = await entradasATuAlcanceApi.post ('/auth/rgister', { email, fullName, password })
+            const { data } = await entradasATuAlcanceApi.post ('/auth/register', { email, fullname, password })
             const { token, user } = data;
             Cookies.set('token', token);
+            Cookies.set('rol', user.roles[0]);
             //mando a llamar al login pq ya se autenticó
             dispatch({ type: '[Auth] - Login', payload: user });
             return {

@@ -22,8 +22,8 @@ export interface IUser {
     likebroadway: boolean;
     likemusicals: boolean;
 
-    id?: number;
-    fullName: string;
+    // id?: number;
+    // fullName: string;
     // email: string;
     // password: string;
     isActive?: boolean;

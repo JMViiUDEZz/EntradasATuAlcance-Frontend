@@ -9,7 +9,7 @@ interface ContextProps {
     
     //firmas
     loginUser: (email: string, password: string) => Promise<boolean>;
-    registerUser: (email: string, password: string, fullName: string ) => Promise<IRespuestaApiAuth>
+    registerUser: (email: string, password: string, fullname: string ) => Promise<IRespuestaApiAuth>
 }
 
 export const AuthContext  = createContext( {} as ContextProps );

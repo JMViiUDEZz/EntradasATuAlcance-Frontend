@@ -13,26 +13,31 @@ interface IRespuestaRegister {
     token: string;
     email: string;
     password: string;
-    fullName: string;
+    fullname: string;
     isActive: boolean;
     roles: String[]
 }
 type UserData = {
     email: string,
     password: string,
-    fullName: string
+    fullname: string
 };
 const RegisterPage = () => {
   const router = useRouter();
+  //hook
   const { registerUser } = useContext(AuthContext);
+
   const { register, handleSubmit, formState: { errors } } = useForm<UserData>();
+
   const [ showError, setShowError ] = useState(false);
   const [ errorMessage, setErrorMessage ] = useState('');
-  
+
+  //manejador del evento submit del formulario
   const onRegisterUser = async ( InputData: UserData ) => {
+    
     setShowError(false);
-    const { email, password, fullName } = InputData;
-    const {hasError, message } = await registerUser(email, password, fullName)
+    const { email, password, fullname } = InputData;
+    const {hasError, message } = await registerUser(email, password, fullname)
     if (hasError){
         setShowError(true);
         setErrorMessage(message || '');
@@ -61,11 +66,11 @@ const RegisterPage = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <TextField 
-                        { ...register('fullName', {
+                        { ...register('fullname', {
                             required: 'Nombre y Apellidos obligatorio'
                         })}
-                        error= { !!errors.fullName}
-                        helperText = { errors.fullName?.message }
+                        error= { !!errors.fullname}
+                        helperText = { errors.fullname?.message }
                         label="Nombre y Apellidos" variant='filled' fullWidth />
                 </Grid>
                 <Grid item xs={12}>

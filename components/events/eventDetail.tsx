@@ -1,12 +1,13 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import Image, { ImageLoader } from 'next/image';
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import { IEvent } from '../../interfaces/events/IEvent';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { AuthContext } from '../../context';
 interface Props {
     event: IEvent
 }
@@ -22,6 +23,7 @@ export const EventDetail:FC<Props> = ({event}) => {
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
       setValue(newValue);
     };
+    const { user } = useContext(AuthContext);
     
   return (
     <Grid container spacing={3}>
@@ -49,6 +51,7 @@ export const EventDetail:FC<Props> = ({event}) => {
             <Box display='flex' flexDirection='row'>
               <Typography sx={{width: '40%'}}  variant='subtitle1' > Publicación </Typography>
               <Typography sx={{width: '60%'}}> {event.starttime} </Typography>
+              { user?.email}
             </Box>
           </Box>
           <Box  sx={{ display:'flex', flexDirection:'column', justifyContent:'space-around', alignItems:'center'}}>
