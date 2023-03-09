@@ -19,6 +19,8 @@ interface Props{
 
 export const AuthProvider:FC<({ children: any })> = ({ children }) => {
     const [ state, dispatch ] = useReducer( authReducer, AUTH_INITIAL_STATE );
+    console.log(state);
+
 
     useEffect( ()=>{
         checkToken()
@@ -39,6 +41,7 @@ export const AuthProvider:FC<({ children: any })> = ({ children }) => {
             console.log(user);
             Cookies.set('token', token);
             Cookies.set('FullName', user.fullname); 
+            // Cookies.set('FullName', data.fullname); 
             dispatch({ type: '[Auth] - Login', payload: user });
             return true;
         } catch (error) { //credenciales falsas
@@ -49,11 +52,17 @@ export const AuthProvider:FC<({ children: any })> = ({ children }) => {
     const registerUser = async (email: string, password: string, fullname: string ):Promise<IRespuestaApiAuth>=> {
         try {
             const { data } = await entradasATuAlcanceApi.post ('/auth/register', { email, fullname, password })
+            console.log(data)
             const { token, user } = data;
             Cookies.set('token', token);
-            // Cookies.set('rol', user.roles[0]);
+            Cookies.set('rol', user.roles);
+            Cookies.set('FullName', user.fullname); 
             //mando a llamar al login pq ya se autenticó
+            console.log(user);
+
             dispatch({ type: '[Auth] - Login', payload: user });
+            console.log(user);
+
             return {
                 hasError: false,
                 message: 'Usuario creado con éxito'

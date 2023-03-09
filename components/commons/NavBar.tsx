@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/auth/AuthContext';
 
 export const NavBar = () => {
   const { user } =  useContext(AuthContext); 
+  console.log(user);
   return (
     <AppBar sx={{ backgroundColor:'green'}}>
         <Toolbar>

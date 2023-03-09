@@ -25,6 +25,7 @@ const LoginPage = () => {
     const onLoginUser = async ({email, password}: FormData ) => {
         setShowError(false);
         const isValidLogin = await loginUser(email, password);
+        console.log(email, password)
 
         if (!isValidLogin){
             setShowError(true);
@@ -33,8 +34,8 @@ const LoginPage = () => {
         }
         //navegar a pantalla en la que estaba el usuario
         // router.push('/');
-        // router.replace('/');
-        router.replace('/events');
+        router.replace('/');
+        // router.replace('/events');
     } 
     return (
         <AuthLayout title={'Ingresar'}>
