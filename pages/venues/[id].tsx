@@ -3,24 +3,25 @@ import { FC } from "react"
 
 import { PublicLayouts } from '../../layouts/PublicLayouts';
 import { useVenues } from '../../hooks/useVenues';
-
+import { VenueDetail } from '../../components/venues/venueDetail';
 
 interface Props {
     venueid: string
 }
 
-const ProductoPage = () => {
+const VenuePage = () => {
     const router = useRouter();
     const venueid = router.query;
     console.log(venueid);
     // renombrando la variable venues por category
-    const { venues:category, isLoading } = useVenues (`/venues/${venueid.id}`);
+    const { venues:venue, isLoading } = useVenues (`/venues/${venueid.id}`);
   return (
     <PublicLayouts>
-        <h2>Detalle de la Categoria { venueid.id}</h2>
+        <h2>Detalle de la Categoria { venueid.id} {`${router.query.id}`}</h2>
+        <VenueDetail venue={venue} />
     </PublicLayouts>
     
   )
 }
 
-export default ProductoPage
+export default VenuePage

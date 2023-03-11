@@ -3,24 +3,28 @@ import { FC } from "react"
 
 import { PublicLayouts } from '../../layouts/PublicLayouts';
 import { useDates } from '../../hooks/useDates';
+import { DateDetail } from "../../components/dates/dateDetail";
 
 
 interface Props {
     dateid: string
 }
 
-const ProductoPage = () => {
-    const router = useRouter();
+const DatePage = () => {
+    const router = useRouter(); 
+    console.log(router);
+
     const dateid = router.query;
     console.log(dateid);
     // renombrando la variable dates por category
-    const { dates:category, isLoading } = useDates (`/dates/${dateid.id}`);
+    const { dates:date, isLoading } = useDates (`/dates/${dateid.id}`);
   return (
     <PublicLayouts>
-        <h2>Detalle de la Categoria { dateid.id}</h2>
+        <h2>Detalle de la Fecha { dateid.id} {`${router.query.id}`}</h2>
+        <DateDetail date={date} />
     </PublicLayouts>
     
   )
 }
 
-export default ProductoPage
+export default DatePage

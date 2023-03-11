@@ -3,24 +3,26 @@ import { FC } from "react"
 
 import { PublicLayouts } from '../../layouts/PublicLayouts';
 import { useSales } from '../../hooks/useSales';
+import { SaleDetail } from '../../components/sales/saleDetail';
 
 
 interface Props {
     saleid: string
 }
 
-const ProductoPage = () => {
+const SalePage = () => {
     const router = useRouter();
     const saleid = router.query;
     console.log(saleid);
     // renombrando la variable sales por category
-    const { sales:category, isLoading } = useSales (`/sales/${saleid.id}`);
+    const { sales:sale, isLoading } = useSales (`/sales/${saleid.id}`);
   return (
     <PublicLayouts>
-        <h2>Detalle de la Categoria { saleid.id}</h2>
+        <h2>Detalle de la Categoria { saleid.id} {`${router.query.id}`}</h2>
+        <SaleDetail sale={sale} />
     </PublicLayouts>
     
   )
 }
 
-export default ProductoPage
+export default SalePage
