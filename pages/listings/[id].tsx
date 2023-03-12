@@ -15,7 +15,9 @@ const ListPage = () => {
     const listid = router.query;
     console.log(listid);
     // renombrando la variable listings por category
-    const { listings:list, isLoading } = useListings (`/listings/${listid.id}`);
+    // const { listings:list, isLoading } = useListings (`/listings/${listid.id}`);
+    const { listings, isLoading } = useListings (`/listings/${listid.id}`);
+    const list = listings[0] || {} as IList;  
   return (
     <PublicLayouts>
         <h2>Detalle de la Categoria { listid.id} {`${router.query.id}`}</h2>

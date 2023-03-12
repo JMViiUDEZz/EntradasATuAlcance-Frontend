@@ -16,9 +16,9 @@ const CategoryPage = () => {
     const catid = router.query;
     console.log(catid);
     // renombrando la variable events por category
-    const { categories:category, isLoading } = useCategories (`/categories/${catid.id}`);
-    // const { categories, isLoading } = useCategories (`/categories/${catid.id}`);
-    // const category = categories[0] || {} as ICategory;
+    // const { categories:category, isLoading } = useCategories (`/categories/${catid.id}`);
+    const { categories, isLoading } = useCategories (`/categories/${catid.id}`);
+    const category = categories[0] || {} as ICategory;
     console.log(category);
   return (
     <PublicLayouts>

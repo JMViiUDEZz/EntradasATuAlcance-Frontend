@@ -4,6 +4,7 @@ import { FC } from "react"
 import { PublicLayouts } from '../../layouts/PublicLayouts';
 import { useDates } from '../../hooks/useDates';
 import { DateDetail } from "../../components/dates/dateDetail";
+import { IDate } from '../../interfaces/dates/IDate';
 
 
 interface Props {
@@ -17,7 +18,9 @@ const DatePage = () => {
     const dateid = router.query;
     console.log(dateid);
     // renombrando la variable dates por category
-    const { dates:date, isLoading } = useDates (`/dates/${dateid.id}`);
+    // const { dates:date, isLoading } = useDates (`/dates/${dateid.id}`);
+    const { dates, isLoading } = useDates (`/dates/${dateid.id}`);
+    const date = dates[0] || {} as IDate;
   return (
     <PublicLayouts>
         <h2>Detalle de la Fecha { dateid.id} {`${router.query.id}`}</h2>

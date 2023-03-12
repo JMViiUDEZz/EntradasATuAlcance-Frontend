@@ -18,9 +18,9 @@ const EventPage = () => {
     const eventid = router.query;
     console.log(eventid);
     // renombrando la variable events por category
-    const { events:event, isLoading } = useEvents (`/events/${eventid.id}`);
-    // const { events, isLoading } = useEvents (`/events/${eventid.id}`);
-    // const event = events[0] || {} as IEvent;    
+    // const { events:event, isLoading } = useEvents (`/events/${eventid.id}`);
+    const { events, isLoading } = useEvents (`/events/${eventid.id}`);
+    const event = events[0] || {} as IEvent;    
     console.log(event)
   return (
     <PublicLayouts>
