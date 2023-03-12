@@ -1,12 +1,11 @@
 version: '3'
 
 services:
-  app:
+  web:
     build: .
     ports:
-      - "3000:80"
-    volumes:
-      - ./pages:/app/pages
-      - ./public:/app/public
+      - "80:80"
+    restart: always
     environment:
-      - NODE_ENV=production
+      NODE_ENV: production
+    command: ["nginx", "-g", "daemon off;"]

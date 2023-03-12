@@ -1,36 +1,31 @@
-# Selecciona una imagen base de Node.js
-FROM node:14.15.0-alpine3.12 AS builder
+# Utilizar la imagen base de Node 18
+FROM node:18
 
-# Configurar el directorio de trabajo de la aplicación
+# Crear el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar el archivo package.json y package-lock.json a la imagen
-COPY package*.json ./
-
-# Instalar las dependencias de la aplicación
-RUN npm install
-
-# Copiar el resto de la aplicación a la imagen
+# Copiar los archivos del proyecto a la imagen
+COPY package.json ./
+COPY yarn.lock ./
 COPY . .
 
-# Compilar la aplicación con Next.js
-RUN npm run dev
+# Instalar las dependencias
+RUN yarn install
 
-# Configurar la imagen base de NGINX
-FROM nginx:1.19.6-alpine
+# Compilar la aplicación
+RUN yarn build
+
+# Utilizar la imagen base de NGINX
+FROM nginx
 
 # Copiar la configuración de NGINX
 COPY nginx.conf /etc/nginx/nginx.conf
-RUN rm /etc/nginx/conf.d/*
-COPY ./public/favicon.ico /usr/share/nginx/html/favicon.ico
-COPY ./entradasatualcance.com /etc/nginx/sites-available/entradasatualcance.com
-RUN mkdir /etc/nginx/sites-enabled
-RUN ln -s /etc/nginx/sites-available/entradasatualcance.com /etc/nginx/sites-enabled/
 
-# Copiar la aplicación compilada de Next.js
-# COPY --from=builder /app/out /usr/share/nginx/html
+# Copiar los archivos compilados de la aplicación
+COPY --from=0 /app/.next/ /usr/share/nginx/html
 
-# Exponer el puerto 80 para NGINX
+# Exponer el puerto 80
 EXPOSE 80
 
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+# Iniciar NGINX en primer plano
+CMD ["nginx", "-g", "daemon off;"]
