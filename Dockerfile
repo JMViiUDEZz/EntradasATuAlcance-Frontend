@@ -1,32 +1,23 @@
-# Utilizar la imagen base de Node 18
+# Selecciona la versión de Node.js que deseas utilizar
 FROM node:18-alpine
 
-# Crear el directorio de trabajo dentro del contenedor
+# Crea y establece el directorio de trabajo de la aplicación
 WORKDIR /app
 
-# Copiar los archivos del proyecto a la imagen
-COPY package.json ./
-COPY yarn.lock ./
+# Copia el package.json y package-lock.json al contenedor
+COPY package*.json ./
+
+# Instala las dependencias de la aplicación
+RUN npm install
+
+# Copia todos los archivos de la aplicación al contenedor
 COPY . .
 
-# Instalar las dependencias
-RUN yarn install
+# Compila la aplicación para producción
+RUN npm run build
 
-# Compilar la aplicación
-RUN yarn build
+# Expone el puerto 3000 para que Nginx pueda comunicarse con la aplicación
+EXPOSE 3000
 
-# Utilizar la imagen base de NGINX
-FROM nginx:latest
-
-# Copiar la configuración de NGINX
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Copiar los archivos compilados de la aplicación
-COPY --from=0 /app/.next/ /usr/share/nginx/html
-
-# Exponer el puerto 80
-EXPOSE 80
-# EXPOSE 81
-
-# Iniciar NGINX en primer plano
-CMD ["nginx", "-g", "daemon off;"]
+# Inicia la aplicación
+CMD ["npm", "start"]
