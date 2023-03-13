@@ -1,5 +1,5 @@
 # Utilizar la imagen base de Node 18
-FROM node:18
+FROM node:18-alpine
 
 # Crear el directorio de trabajo dentro del contenedor
 WORKDIR /app
@@ -16,7 +16,7 @@ RUN yarn install
 RUN yarn build
 
 # Utilizar la imagen base de NGINX
-FROM nginx
+FROM nginx:latest
 
 # Copiar la configuración de NGINX
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -26,7 +26,7 @@ COPY --from=0 /app/.next/ /usr/share/nginx/html
 
 # Exponer el puerto 80
 EXPOSE 80
-EXPOSE 81
+# EXPOSE 81
 
 # Iniciar NGINX en primer plano
 CMD ["nginx", "-g", "daemon off;"]
