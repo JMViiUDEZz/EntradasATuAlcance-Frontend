@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
-import { CategoryCard } from "../listings/listCard";
-import { IList } from '../../interfaces/listings/IList';
+import { CategoryCard } from "../listings";
+import { IList } from '../../interfaces';
 
 interface Props {
     listings: IList[]

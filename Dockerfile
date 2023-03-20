@@ -4,6 +4,13 @@ FROM node:18-alpine
 # Crea y establece el directorio de trabajo de la aplicación
 WORKDIR /app
 
+# Import environment variables from .env file
+ARG FRONTEND_NODE_PORT
+ARG FRONTEND_NGINX_PORT
+
+ENV FRONTEND_NODE_PORT=${FRONTEND_NODE_PORT}        
+ENV FRONTEND_NGINX_PORT=${FRONTEND_NGINX_PORT}
+
 # Copia el package.json y package-lock.json al contenedor
 COPY package*.json ./
 

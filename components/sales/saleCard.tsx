@@ -1,6 +1,6 @@
 import { Box, Card, CardActionArea, CardMedia, Grid, Link, Typography } from "@mui/material";
 import { FC } from "react";
-import { ISale } from "../../interfaces/sales/ISale";
+import { ISale } from "../../interfaces";
 import NextLink  from 'next/link';
 
 interface Props {

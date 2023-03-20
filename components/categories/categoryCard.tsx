@@ -1,6 +1,6 @@
 import { Box, Card, CardActionArea, CardMedia, Grid, Link, Typography } from "@mui/material";
 import { FC } from "react";
-import { ICategory } from "../../interfaces/categories";
+import { ICategory } from "../../interfaces";
 import NextLink  from 'next/link';
 
 interface Props {
@@ -13,11 +13,11 @@ export const CategoryCard:FC<Props> = ({ category }) => {
           <Link href={`/categories/${category.catid}`}  passHref component={NextLink} prefetch={false}>
             <CardActionArea>
                 <Box display='flex' alignItems='flex-start' flexDirection='row'>
-                    <CardMedia
+                    {/* <CardMedia
                         component='img' className='fadeIn'
                         image={ category.catdesc } alt={ category.catgroup } 
                         sx={{ width:'120px' }}
-                    />
+                    /> */}
                     <Box sx={{marginLeft: 3}}>
                         <Typography fontWeight={500}>Precio</Typography> 
                         <Typography fontWeight={700}>{category.catname} €</Typography> 
@@ -27,8 +27,8 @@ export const CategoryCard:FC<Props> = ({ category }) => {
           </Link>
         </Card>
         <Box sx= {{ marginTop: 1}} className='fadeIn'>
-            <Typography fontWeight={700}>{category.catdesc}</Typography>
-            <Typography fontWeight={500}>{category.catgroup}</Typography>
+            {/* <Typography fontWeight={700}>{category.catdesc}</Typography> */}
+            {/* <Typography fontWeight={500}>{category.catgroup}</Typography> */}
         </Box>
     </Grid>
   )

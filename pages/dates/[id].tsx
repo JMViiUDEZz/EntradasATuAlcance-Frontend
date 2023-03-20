@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { FC } from "react"
 
-import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { useDates } from '../../hooks/useDates';
-import { DateDetail } from "../../components/dates/dateDetail";
-import { IDate } from '../../interfaces/dates/IDate';
+import { MainLayouts } from '../../components/layouts';
+import { useDates } from '../../hooks';
+import { DateDetail } from "../../components/dates";
+import { IDate } from '../../interfaces';
 
 
 interface Props {
@@ -22,10 +22,10 @@ const DatePage = () => {
     const { dates, isLoading } = useDates (`/dates/${dateid.id}`);
     const date = dates[0] || {} as IDate;
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
         <h2>Detalle de la Fecha { dateid.id} {`${router.query.id}`}</h2>
         <DateDetail date={date} />
-    </PublicLayouts>
+    </MainLayouts>
     
   )
 }

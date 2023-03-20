@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
-import { SaleCard } from "../sales/saleCard";
-import { ISale } from '../../interfaces/sales/ISale';
+import { SaleCard } from "../sales";
+import { ISale } from '../../interfaces';
 
 interface Props {
     sales: ISale[]

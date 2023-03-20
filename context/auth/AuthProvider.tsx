@@ -1,10 +1,10 @@
 import { FC, useReducer, useEffect } from 'react';
 import { AuthContext, authReducer  } from './';
-import { IUser } from '../../interfaces/users/IUser';
+import { IUser } from '../../interfaces';
 import entradasATuAlcanceApi from '../../api/EntradasATuAlcanceApi';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import { IRespuestaApiAuth, IRespuestaLogin } from './interfaces/IRespuestaAuthApi';
+// import { signOut } from 'next-auth/react';
 export interface AuthState{
     isLoggedIn: boolean;
     user?: IUser;
@@ -49,16 +49,16 @@ export const AuthProvider:FC<({ children: any })> = ({ children }) => {
         }
     } 
                          //   {...user}
-    const registerUser = async (email: string, password: string, fullname: string ):Promise<IRespuestaApiAuth>=> {
+    const registerUser = async (email: string, password: string, fullname: string ):Promise<{hasError: boolean; message?: string}>=> {
         try {
             const { data } = await entradasATuAlcanceApi.post ('/auth/register', { email, fullname, password })
-            // console.log(data)
+            console.log(data)
             const { token, user } = data;
             Cookies.set('token', token);
-            Cookies.set('rol', user.roles);
-            Cookies.set('Fullname', user.fullname); 
+            // Cookies.set('rol', user.roles);
+            // Cookies.set('Fullname', user.fullname); 
             //mando a llamar al login pq ya se autenticó
-            // console.log(user);
+            console.log(user);
 
             dispatch({ type: '[Auth] - Login', payload: user });
             // console.log(user);
@@ -81,11 +81,23 @@ export const AuthProvider:FC<({ children: any })> = ({ children }) => {
             }
         }
     }
+
+    const logout = () => {
+        // Cookies.remove('cart');
+        // Cookies.remove('firstName');
+        Cookies.remove('token');
+        
+        // signOut();
+        // router.reload();
+        // Cookies.remove('token');
+    }
+
     return (
         <AuthContext.Provider value={{
             ...state,
             loginUser,
-            registerUser
+            registerUser,
+            logout,
         }}>
             { children }
         </AuthContext.Provider>

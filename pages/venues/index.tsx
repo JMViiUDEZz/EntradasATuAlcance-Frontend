@@ -1,16 +1,16 @@
-import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { VenueCardList } from '../../components/venues/venueCardList';
-import { useVenues } from '../../hooks/useVenues';
+import { VenueCardList } from '../../components/venues';
+import { useVenues } from '../../hooks';
+import { MainLayouts } from '../../components/layouts';
 
 const IndexCategoriesPage = () => {
   const { venues, isLoading } = useVenues('/venues');
   console.log("l=", isLoading, "c=", venues);
 
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
       <h2>Sección de Categorias</h2>
       <VenueCardList venues = {venues} />
-    </PublicLayouts>
+    </MainLayouts>
   )
 }
 

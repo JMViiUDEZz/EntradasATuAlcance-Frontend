@@ -1,6 +1,6 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { FC } from 'react';
-import { ICategory } from '../../interfaces/categories/ICategory';
+import { ICategory } from '../../interfaces';
 
 
 interface Props {

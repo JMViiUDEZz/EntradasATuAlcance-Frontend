@@ -1,6 +1,6 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { FC } from 'react';
-import { ISale } from '../../interfaces/sales/ISale';
+import { ISale } from '../../interfaces';
 
 
 interface Props {

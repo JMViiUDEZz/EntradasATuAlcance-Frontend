@@ -1,16 +1,16 @@
-import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { EventCardList } from '../../components/events/eventCardList';
-import { useEvents } from '../../hooks/useEvents';
+import { MainLayouts } from '../../components/layouts';
+import { EventCardList } from '../../components/events';
+import { useEvents } from '../../hooks';
 
 const IndexCategoriesPage = () => {
   const { events, isLoading } = useEvents('/events');
   console.log("l=", isLoading, "c=", events);
 
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
       <h2>Sección de Categorias</h2>
       <EventCardList events = {events} />
-    </PublicLayouts>
+    </MainLayouts>
   )
 }
 

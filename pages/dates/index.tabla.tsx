@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button } from "@mui/material";
 import { NextPage } from "next"
-import { MainLayouts } from "../../layouts";
-import { useDates } from '../../hooks/useDates';
-import { DateList } from '../../components/dates/dateList';
-import { Mundo } from '../../components/Mundo';
+import { MainLayouts } from "../../components/layouts";
+import { useDates } from '../../hooks';
+import { DateList } from '../../components/dates';
+// import { Mundo } from '../../components/Mundo';
 
 const CategoriaIndex = () => {
   // const indexPage: NextPage = () => {
@@ -13,14 +13,8 @@ const CategoriaIndex = () => {
   //  console.log(respuesta);
     console.log(isLoading, "c=", dates);
     return (
-      <MainLayouts>
-        {
-          (isLoading )
-            ? <DateList dates={ dates }  /> 
-            : <Mundo />
-  
-        }
-        <h1>Entradas a tu alcance</h1>
+      <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
+         <DateList dates={ dates }  /> 
       </MainLayouts>
     )
   }  

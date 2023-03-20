@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
-import { CategoryCard } from "../venues/venueCard";
-import { IVenue } from '../../interfaces/venues/IVenue';
+import { CategoryCard } from "../venues";
+import { IVenue } from '../../interfaces';
 
 interface Props {
     venues: IVenue[]

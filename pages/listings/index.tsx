@@ -1,4 +1,4 @@
-import { PublicLayouts } from '../../layouts/PublicLayouts';
+import { MainLayouts } from '../../components/layouts';
 import { ListCardList } from '../../components/listings/listCardList';
 import { useListings } from '../../hooks/useListings';
 
@@ -7,10 +7,10 @@ const IndexCategoriesPage = () => {
   console.log("l=", isLoading, "c=", listings);
 
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
       <h2>Sección de Categorias</h2>
       <ListCardList listings = {listings} />
-    </PublicLayouts>
+    </MainLayouts>
   )
 }
 

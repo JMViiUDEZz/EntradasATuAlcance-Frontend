@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
-import { DateCard } from "../dates/dateCard";
-import { IDate } from '../../interfaces/dates/IDate';
+import { DateCard } from "../dates";
+import { IDate } from '../../interfaces';
 
 interface Props {
     dates: IDate[]

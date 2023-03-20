@@ -1,7 +1,6 @@
 
 import { createContext } from 'react';
-import { IUser } from '../../interfaces/users/IUser';
-import { IRespuestaApiAuth } from './interfaces/IRespuestaAuthApi';
+import { IUser } from '../../interfaces';
 
 interface ContextProps {
     isLoggedIn: boolean;
@@ -9,7 +8,8 @@ interface ContextProps {
     
     //firmas
     loginUser: (email: string, password: string) => Promise<boolean>;
-    registerUser: (email: string, password: string, fullname: string ) => Promise<IRespuestaApiAuth>
+    registerUser: (email: string, password: string, fullname: string ) => Promise<{hasError: boolean; message?: string}>
+    logout: () => void;
 }
 
 export const AuthContext  = createContext( {} as ContextProps );

@@ -1,17 +1,31 @@
-import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { CategoryCardList } from '../../components/categories/categoryCardList';
-import { useCategories } from '../../hooks/useCategories';
+import React from 'react'
+import { Button } from "@mui/material";
+import { NextPage } from "next"
+import { MainLayouts } from "../../components/layouts";
+import { useCategories } from '../../hooks';
+import { CategoryList } from '../../components/categories/categoryList';
+// import { Mundo } from '../../components/Mundo';
 
-const IndexCategoriesPage = () => {
-  const { categories, isLoading } = useCategories('/categories');
-  console.log("l=", isLoading, "c=", categories);
+const CategoriaIndex = () => {
+  // const indexPage: NextPage = () => {
+    const { categories, isLoading } = useCategories ('/categories');
+    // const respuesta = useAuth ('/auth');
+  //  console.log(respuesta);
+    console.log(isLoading, "c=", categories);
+    return (
+      <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
+        {/* {
+          (isLoading ) */}
+            {/* ?  */}
+            <CategoryList categories={ categories }  /> 
+            {/* : <Mundo /> */}
+  
+        {/* } */}
+        {/* <h1>Entradas a tu alcance</h1> */}
+      </MainLayouts>
+    )
+  }  
+// }
 
-  return (
-    <PublicLayouts>
-      <h2>Sección de Categorias</h2>
-      <CategoryCardList categories = {categories} />
-    </PublicLayouts>
-  )
-}
 
-export default IndexCategoriesPage;
+export default CategoriaIndex

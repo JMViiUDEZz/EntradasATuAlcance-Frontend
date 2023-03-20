@@ -1,16 +1,16 @@
-import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { DateCardList } from '../../components/dates/dateCardList';
-import { useDates } from '../../hooks/useDates';
+import { DateCardList } from '../../components/dates';
+import { useDates } from '../../hooks';
+import { MainLayouts } from '../../components/layouts';
 
 const IndexCategoriesPage = () => {
   const { dates, isLoading } = useDates('/dates');
   console.log("l=", isLoading, "c=", dates);
 
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
       <h2>Sección de Categorias</h2>
       <DateCardList dates = {dates} />
-    </PublicLayouts>
+    </MainLayouts>
   )
 }
 

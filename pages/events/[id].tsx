@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { FC } from "react"
-import { MainLayouts, PublicLayouts } from "../../layouts";
-import { useEvents } from '../../hooks/useEvents';
-import { EventDetail } from '../../components/events/eventDetail';
-import { IEvent } from '../../interfaces/events/IEvent';
+import { MainLayouts } from "../../components/layouts";
+import { useEvents } from '../../hooks';
+import { EventDetail } from '../../components/events';
+import { IEvent } from '../../interfaces';
 
 
 
@@ -23,10 +23,10 @@ const EventPage = () => {
     const event = events[0] || {} as IEvent;    
     console.log(event)
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
         <h2>Detalle de la Categoria { eventid.id} {`${router.query.id}`}</h2>
         <EventDetail event={event} />
-    </PublicLayouts>
+    </MainLayouts>
     
   )
 }

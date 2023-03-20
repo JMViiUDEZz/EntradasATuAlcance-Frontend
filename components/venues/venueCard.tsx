@@ -1,6 +1,6 @@
 import { Box, Card, CardActionArea, CardMedia, Grid, Link, Typography } from "@mui/material";
 import { FC } from "react";
-import { IVenue } from "../../interfaces/venues/IVenue";
+import { IVenue } from "../../interfaces";
 import NextLink  from 'next/link';
 
 interface Props {

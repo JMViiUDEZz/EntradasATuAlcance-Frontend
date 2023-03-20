@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { FC } from 'react';
-import { IDate } from '../../interfaces/dates/IDate';
+import { IDate } from '../../interfaces';
 import ClearIcon from '@mui/icons-material/Clear';
 import ModeEditOutlineTwoToneIcon from '@mui/icons-material/ModeEditOutlineTwoTone';
 import AddBoxIcon from '@mui/icons-material/AddBox';

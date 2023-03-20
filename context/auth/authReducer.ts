@@ -1,5 +1,5 @@
 
-import { IUser } from "../../interfaces/users/IUser";
+import { IUser } from "../../interfaces";
 import { AuthState } from "./";
 
 type AuthActionType =

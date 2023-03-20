@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import Image, { ImageLoader } from 'next/image';
 import React, { FC, useContext } from 'react'
-import { ICategory } from '../../interfaces/categories/ICategory';
+import { ICategory } from '../../interfaces';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';

@@ -1,10 +1,11 @@
 import { useRouter } from "next/router";
 import { FC } from "react"
 
-import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { useListings } from '../../hooks/useListings';
-import { ListDetail } from '../../components/listings/listDetail';
-import { IList } from '../../interfaces/listings/IList';
+// import { PublicLayouts } from '../../components/layouts';
+import { MainLayouts } from '../../components/layouts';
+import { useListings } from '../../hooks';
+import { ListDetail } from '../../components/listings';
+import { IList } from '../../interfaces';
 
 interface Props {
     listid: string
@@ -19,10 +20,10 @@ const ListPage = () => {
     const { listings, isLoading } = useListings (`/listings/${listid.id}`);
     const list = listings[0] || {} as IList;  
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
         <h2>Detalle de la Categoria { listid.id} {`${router.query.id}`}</h2>
         <ListDetail list={list} />
-    </PublicLayouts>
+    </MainLayouts>
     
   )
 }

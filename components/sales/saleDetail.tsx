@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import Image, { ImageLoader } from 'next/image';
 import React, { FC } from 'react'
-import { ISale } from '../../interfaces/sales/ISale';
+import { ISale } from '../../interfaces';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';

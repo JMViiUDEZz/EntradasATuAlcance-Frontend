@@ -1,10 +1,11 @@
 import { useRouter } from "next/router";
 import { FC } from "react"
 
-import { PublicLayouts } from '../../layouts/PublicLayouts';
-import { useSales } from '../../hooks/useSales';
-import { SaleDetail } from '../../components/sales/saleDetail';
-import { ISale } from "../../interfaces/sales/ISale";
+// import { PublicLayouts } from '../../components/layouts';
+import { MainLayouts } from '../../components/layouts';
+import { useSales } from '../../hooks';
+import { SaleDetail } from '../../components/sales';
+import { ISale } from "../../interfaces";
 
 
 interface Props {
@@ -20,10 +21,10 @@ const SalePage = () => {
     const { sales, isLoading } = useSales (`/sales/${saleid.id}`);
     const sale = sales[0] || {} as ISale;  
   return (
-    <PublicLayouts>
+    <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
         <h2>Detalle de la Categoria { saleid.id} {`${router.query.id}`}</h2>
         <SaleDetail sale={sale} />
-    </PublicLayouts>
+    </MainLayouts>
     
   )
 }
