@@ -20,7 +20,7 @@ export const Footer = () => {
           <Box sx={{ display: { xs: 'none', sm: 'flex'}, flexGrow: 1 }}
           >
             <Typography variant="overline" component="div" sx={{ flexGrow: 1 }}>
-                Página con derechos de autor reservados por Nievabus©
+                Página con derechos de autor reservados©
           </Typography>
           </Box>
 
