@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { FC } from "react"
-import { CategoryCard } from "../events";
+import { EventCard } from "../events";
 import { IEvent } from '../../interfaces';
 
 interface Props {
@@ -12,7 +12,7 @@ export const EventCardList:FC<Props> = ({ events }) => {
     <Grid container spacing={4}>
       {
         events.map( (event ) => (
-          <CategoryCard 
+          <EventCard 
             event = { event }
             key = { event.eventid }
           />

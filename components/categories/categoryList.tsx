@@ -29,7 +29,7 @@ export const CategoryList:FC<Props> = ({categories}) => {
   // };
 
   const handleEditar = (params: GridRenderCellParams<any, any>) => {
-    const catid = params.row.getFieldValue('catid');
+    const catid = params.row.catid;
     const url = `/categories/update/${catid}`;
     window.location.href = url;
   };

@@ -125,7 +125,7 @@ const UpdateCategory = () => {
     const fetchCategory = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/api/categories/${catid}`);
+        const response = await fetch(`/categories/find/${catid}`);
         const data = await response.json();
         setCategory(data.category);
         setIsLoading(false);
