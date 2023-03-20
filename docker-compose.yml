@@ -3,7 +3,7 @@ version: '3'
 services:
   env_file:
    - ./.env
-  args:
+  environment:
   - FRONTEND_NODE_PORT=${FRONTEND_NODE_PORT}        
   - FRONTEND_NGINX_PORT=${FRONTEND_NGINX_PORT}        
   web:
