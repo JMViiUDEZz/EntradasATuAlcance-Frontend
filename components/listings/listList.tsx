@@ -47,9 +47,9 @@ export const ListList:FC<Props> = ({listings}) => {
                   }}>
                  <DataGrid 
                     columns={colums} rows={rows}
-                    pageSize= {10}
+                    // pageSize= {10}
                     // onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-                    rowsPerPageOptions={[5, 10, 20]}
+                    // rowsPerPageOptions={[5, 10, 20]}
                     pagination
                     getRowId = {( row: IList ) => row.listid}
                   />

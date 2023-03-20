@@ -11,10 +11,10 @@ interface Props {
 export const UserList:FC<Props> = ({users}) => {
   
   const colums: GridColDef[] = [
-    { field: 'id', headerName: 'id', width: 130},
-    { field: 'fullName', headerName:'fullName', width: 300 },
+    { field: 'userid', headerName: 'userid', width: 130},
+    { field: 'fullname', headerName:'fullname', width: 300 },
     { field: 'email', headerName: 'email', width: 100 },
-    { field: 'roles', headerName: 'roles', width: 100 },
+    { field: 'role', headerName: 'role', width: 100 },
     { field: 'isActive', headerName: 'isActive', width: 100 },
     { field: 'password', headerName: 'password', width: 100 }
   ];
@@ -41,7 +41,8 @@ export const UserList:FC<Props> = ({users}) => {
                     // onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
                     // rowsPerPageOptions={[5, 10, 20]}
                     pagination
-                    getRowId = {( row: IUser ) => row.userid}
+                    getRowId = {( row: IUser ) => row.fullname}
+                    // getRowId = {( row: IUser ) => row.userid}
                   />
                </Grid>
             </Grid>
