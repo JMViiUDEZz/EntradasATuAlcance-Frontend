@@ -28,7 +28,7 @@ import { AuthContext } from "@/context";
 import { useContext } from "react";
 import { useRouter } from 'next/router';
 
-export const NavBar = () => {
+export const Navbar = () => {
 
   const { user } =  useContext(AuthContext); 
   console.log('usuario: ', user);
