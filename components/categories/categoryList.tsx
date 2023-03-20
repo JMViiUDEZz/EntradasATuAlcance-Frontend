@@ -1,5 +1,5 @@
 import { Box, Button, Grid, MenuItem, Link } from '@mui/material';
-import { DataGrid, GridCellParams, GridColDef, GridRowParams } from '@mui/x-data-grid';
+import { DataGrid, GridCellParams, GridColDef, GridRenderCellParams, GridRowId, GridRowParams } from '@mui/x-data-grid';
 import { FC } from 'react';
 import { ICategory } from '../../interfaces';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -22,8 +22,14 @@ export const CategoryList:FC<Props> = ({categories}) => {
   //   setSelectedRow(params.row as ICategory);
   // };
 
-  const handleEditar = (params: GridRowParams) => {
-    const catid = params.row.catid;
+  // const handleEditar = (params: GridRowParams) => {
+  //   const catid = params.row.catid;
+  //   const url = `/categories/update/${catid}`;
+  //   window.location.href = url;
+  // };
+
+  const handleEditar = (params: GridRenderCellParams<any, any>) => {
+    const catid = params.row.getFieldValue('catid');
     const url = `/categories/update/${catid}`;
     window.location.href = url;
   };
@@ -51,7 +57,7 @@ export const CategoryList:FC<Props> = ({categories}) => {
           headerName: 'Acciones',
           description: 'Muestra información si la orden está pagada o no',
           width: 200,
-          renderCell: (params: GridCellParams) => (
+          renderCell: (params: GridRenderCellParams<any, any>) => (
               <>
                 {/* <Link href='/categories/update' passHref component={ NextLink }> */}
                     <Button onClick={() => handleEditar(params)} sx={{ color: 'black'}}>
@@ -59,7 +65,7 @@ export const CategoryList:FC<Props> = ({categories}) => {
                     </Button>
                   {/* </Link> */}
                 {/* <Link href='/categories/remove' passHref component={ NextLink }> */}
-                    <Button onClick={() => handleEliminar(params.row)} sx={{ color: 'black'}}>
+                    <Button onClick={() => handleEliminar(params.row as ICategory)} sx={{ color: 'black'}}>
                       <ClearIcon  sx={{ color: 'blue'}} />
                     </Button>
                   {/* </Link> */}
@@ -98,13 +104,13 @@ export const CategoryList:FC<Props> = ({categories}) => {
                     // onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
                     // rowsPerPageOptions={[5, 10, 20]}
                     pagination
-                    getRowId = {( row: ICategory ) => row.catid}
+                    getRowId = {( row: ICategory ) => row.catid as GridRowId}
                   />
                </Grid>
             </Grid>
   )
 }
 
-function useState<T>(arg0: null): [any, any] {
-  throw new Error('Function not implemented.');
-}
+// function useState<T>(arg0: T): [T, any] {
+//   throw new Error('Function not implemented.');
+// }
