@@ -18,7 +18,8 @@ const ListPage = () => {
     // renombrando la variable listings por category
     // const { listings:list, isLoading } = useListings (`/listings/${listid.id}`);
     const { listings, isLoading } = useListings (`/listings/${listid.id}`);
-    const list = listings[0] || {} as IList;  
+    // const list = listings[0] || {} as IList;
+    const list = listings as unknown as IList;      
   return (
     <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
         <h2>Detalle de la Categoria { listid.id} {`${router.query.id}`}</h2>
