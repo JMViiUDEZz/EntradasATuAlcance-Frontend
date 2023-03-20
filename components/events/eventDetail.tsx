@@ -32,24 +32,24 @@ export const EventDetail:FC<Props> = ({event}) => {
           <Image
             loader={myLoader}
             src= {event.image}
-            alt={event.eventname}
+            alt={event.image}
             width={300}
             height={300}
           />
           <Box display='flex' flexDirection='column' sx={{  width: '40%', p:3}} >
             <Typography variant='h5' component='h5'
                         sx={{ fontSize: '20px', textAlign: 'center', mb: '10px'}}
-            > { event.venue}</Typography>
+            > { event.eventid}</Typography>
             <Box display='flex' flexDirection='row' >
-              <Typography sx={{width: '40%'}}  variant='subtitle1' > ISBN </Typography>
+              <Typography sx={{width: '40%'}}  variant='subtitle1' > Id </Typography>
               <Typography sx={{width: '60%'}}> {event.date} </Typography>
             </Box>
             <Box display='flex' flexDirection='row'>
-              <Typography sx={{width: '40%'}}  variant='subtitle1' > Paginas </Typography>
-              <Typography sx={{width: '60%'}}> {event.venue} </Typography>
+              <Typography sx={{width: '40%'}}  variant='subtitle1' > Nombre </Typography>
+              <Typography sx={{width: '60%'}}> {event.eventname} </Typography>
             </Box>
             <Box display='flex' flexDirection='row'>
-              <Typography sx={{width: '40%'}}  variant='subtitle1' > Publicación </Typography>
+              <Typography sx={{width: '40%'}}  variant='subtitle1' > Fecha </Typography>
               <Typography sx={{width: '60%'}}> {event.starttime} </Typography>
               { user?.email}
             </Box>
@@ -68,14 +68,14 @@ export const EventDetail:FC<Props> = ({event}) => {
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={handleChange} aria-label="lab API tabs example">
-                <Tab label="Descripcion" value="1" />
-                <Tab label="Sinpsis" value="2" />
-                <Tab label="Estado" value="3" />
+                <Tab label="Categoria" value="1" />
+                <Tab label="Fecha" value="2" />
+                <Tab label="Lugar" value="3" />
               </TabList>
             </Box>
-            {/* <TabPanel value="1">{event.eventname}</TabPanel>
-            <TabPanel value="2">{event.starttime}</TabPanel>
-            <TabPanel value="3">{event.venue}</TabPanel> */}
+            <TabPanel value="1">{event.cat}</TabPanel>
+            <TabPanel value="2">{event.date}</TabPanel>
+            <TabPanel value="3">{event.venue}</TabPanel>
           </TabContext>
         </Box>
         {/* <Box sx={{ width: '100%' }}>
