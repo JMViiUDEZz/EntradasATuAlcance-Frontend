@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 // import { Navbar } from '../../components/commons';
 import Head from 'next/head';
 import { SideMenu } from '../../components/ui';
-import { Navbar } from '../commons/Navbar';
+import { Navbar } from '../commons';
 
 interface Props {
     children: any;
