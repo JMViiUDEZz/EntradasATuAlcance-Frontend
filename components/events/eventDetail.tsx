@@ -31,8 +31,8 @@ export const EventDetail:FC<Props> = ({event}) => {
         <Box display='flex' flexDirection='row'  >
           <Image
             loader={myLoader}
-            src= {event.eventname}
-            alt={event.starttime}
+            src= {event.image}
+            alt={event.eventname}
             width={300}
             height={300}
           />
@@ -73,9 +73,9 @@ export const EventDetail:FC<Props> = ({event}) => {
                 <Tab label="Estado" value="3" />
               </TabList>
             </Box>
-            <TabPanel value="1">{event.eventname}</TabPanel>
+            {/* <TabPanel value="1">{event.eventname}</TabPanel>
             <TabPanel value="2">{event.starttime}</TabPanel>
-            <TabPanel value="3">{event.venue}</TabPanel>
+            <TabPanel value="3">{event.venue}</TabPanel> */}
           </TabContext>
         </Box>
         {/* <Box sx={{ width: '100%' }}>

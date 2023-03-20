@@ -8,6 +8,4 @@ export interface IEvent {
     eventname: string;
     starttime: string;
     image: string;
-    createdAt: string;
-    updatedAt: string;
 }

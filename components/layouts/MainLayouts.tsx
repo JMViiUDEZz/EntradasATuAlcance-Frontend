@@ -40,7 +40,7 @@ export const MainLayouts:FC<Props> = ({children, title, pageDescription, imageFu
         {/* Footer */}
         {/* <footer> */}
             {/* TODO: mi custom footer */}
-        {/* </footer> */} */
+        {/* </footer> */}
         {/* } */}
 
 

@@ -9,7 +9,7 @@ import { IEvent } from '../../interfaces';
 
 interface Props {
     eventid: string
-}
+  }
 
 const EventPage = () => {
     const router = useRouter();
@@ -20,11 +20,11 @@ const EventPage = () => {
     // renombrando la variable events por category
     // const { events:event, isLoading } = useEvents (`/events/${eventid.id}`);
     const { events, isLoading } = useEvents (`/events/${eventid.id}`);
-    const event = events[0] || {} as IEvent;    
+    const event = events as unknown as IEvent;    
     console.log(event)
   return (
     <MainLayouts title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
-        <h2>Detalle de la Categoria { eventid.id} {`${router.query.id}`}</h2>
+        <h2>Detalle del Evento { eventid.id} {`${router.query.id}`}</h2>
         <EventDetail event={event} />
     </MainLayouts>
     
