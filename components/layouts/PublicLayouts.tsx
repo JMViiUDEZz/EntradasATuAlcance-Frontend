@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { FC } from 'react'
 // import { Navbar } from '../../components/commons';
 import { SideMenu } from '../ui';
-import { Navbar } from '../commons';
+import { Navbar}  from '../commons';
 
 
 interface Props {
