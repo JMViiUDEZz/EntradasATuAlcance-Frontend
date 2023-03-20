@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import Head from 'next/head';
 import { SideMenu } from '../ui';
 // import { AdminNavbar } from '../commons/admin';
-import { Navbar } from '../commons/admin';
+import { AdminNavbar } from '../commons/admin';
 
 interface Props {
     children: any;
@@ -63,8 +63,8 @@ export const AdminLayout:FC<Props> = ({children, title, pageDescription, imageFu
         </Head> 
 
         <nav>
-            <Navbar/>
-            {/* <AdminNavbar /> */}
+            {/* <Navbar/> */}
+            <AdminNavbar />
         </nav>
 
         <SideMenu />
