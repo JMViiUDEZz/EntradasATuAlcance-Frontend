@@ -21,7 +21,8 @@ RUN npm install
 COPY . .
 
 # Compila la aplicación para producción
-RUN npm run build
+# RUN npm run build
+RUN yarn build
 
 # Expone el puerto 3000 para que Nginx pueda comunicarse con la aplicación
 EXPOSE 3000
