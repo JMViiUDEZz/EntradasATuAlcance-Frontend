@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 // import { Navbar } from '../../components/commons';
 import Head from 'next/head';
 import { SideMenu } from '../../components/ui';
-import { Navbar1 } from '../commons';
+import { Navbar } from '../commons';
 
 interface Props {
     children: any;
@@ -62,7 +62,7 @@ export const MainLayouts:FC<Props> = ({children, title, pageDescription, imageFu
         </Head> 
 
         <nav>
-            <Navbar1 />
+            <Navbar />
         </nav>
 
         <SideMenu />

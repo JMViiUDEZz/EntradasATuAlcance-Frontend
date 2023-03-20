@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { FC } from 'react'
 // import { Navbar } from '../../components/commons';
 import { SideMenu } from '../ui';
-import { Navbar1}  from '../commons';
+import { Navbar}  from '../commons';
 
 
 interface Props {
@@ -12,7 +12,7 @@ export const PublicLayouts:FC<Props> = ({ children }) => {
   return (
     <>
         <header>
-            <Navbar1 />
+            <Navbar />
         </header>
         <main style={{
             margin: '20px auto',
